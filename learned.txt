@@ -1,0 +1,7 @@
+global : 
+    - manage document .txt (global)
+day 1 : 
+    - list comprehension
+    - split 
+day 2 : 
+    - ordinates 
