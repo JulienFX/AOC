@@ -7,4 +7,4 @@ day 2 :
     - ordinates =>review ascii table 
 day 3 : 
     - review property slicing 
-    - int(variable/var) <=> variable//var 
+    - int(variable/var) <=> variable//var  
