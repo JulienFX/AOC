@@ -8,3 +8,6 @@ day 2 :
 day 3 : 
     - review property slicing 
     - int(variable/var) <=> variable//var  
+day 4 : 
+    - Copy of list
+    - range(n,p) return nothing if n=p
