@@ -1,5 +1,6 @@
-import os 
+import os
 file = open(os.path.join(os.getcwd(), "2022", "day5", "input.txt")).read().split('\n') # file est de type str 
+copyfile = list(file)
 col1 = ['Q','S','W','C','Z','V','F','T']
 col2 = ['Q','R','B']
 col3 = ['B','Z','T','Q','P','M','S']
@@ -31,27 +32,48 @@ def numberToCol(nb) :
         return col9
     else : # cas d'erreur 
         return 0  
+
+
+# Variable col commune donc obligé de mettre une partie en commentaire 
+
+# PART 1 
     
-    
-file.reverse()
-while(len(file)>0) : 
-    line = file.pop().replace(" ","")
+# file.reverse()
+# while(len(file)>0) : 
+#     line = file.pop().replace(" ","")
+#     if "move" in line : 
+#         line = line.replace("move","").replace("from",",").replace("to",",").split(',')
+#         nbLettre = line[0]
+#         oldCol = numberToCol(int(line[1]))
+#         newCol = numberToCol(int(line[2]))
+#         for _ in range(int(nbLettre)) :
+#             newCol.append(oldCol.pop()) 
+# answer = ""
+# for _ in range(1,10) : # de 1 jusqu'à 10 
+#     num = numberToCol(_)
+#     answer = answer + num.pop()
+# print(answer)
+# Du 1er coup :)
+
+# PART 2 
+copyfile.reverse()
+while(len(copyfile)>0) :
+    line = copyfile.pop().replace(" ", "")
     if "move" in line : 
         line = line.replace("move","").replace("from",",").replace("to",",").split(',')
         nbLettre = line[0]
         oldCol = numberToCol(int(line[1]))
         newCol = numberToCol(int(line[2]))
+        tempCol = list() # autre manière d'initialiser une liste que de faire tempCol = []
         for _ in range(int(nbLettre)) :
-            newCol.append(oldCol.pop()) 
-answer = ""
-for _ in range(1,10) : 
+            tempCol.append(oldCol.pop())
+        tempCol.reverse()
+        newCol.extend(tempCol) # auparavant je faisais newCol = newCol + tempCol ce qui créer des pb de référencement
+answer=""
+for _ in range(1,10) : # de 1 jusqu'à 10 
     num = numberToCol(_)
-    answer = answer + num.pop()
+    if len(num) >0 : 
+        answer = answer + num.pop()
 print(answer)
-# Du 1er coup :)
-
-            
 
 
-        
-        
